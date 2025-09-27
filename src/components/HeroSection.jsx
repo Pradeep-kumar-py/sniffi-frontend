@@ -105,7 +105,7 @@ const HeroSection = () => {
                     {/* Stats/features */}
                     <div className="flex gap-6 mt-8 text-center animate-hero-fade-up" style={{ animationDelay: '1s' }}>
                         <div className="text-center group hover:scale-105 transition-transform duration-300">
-                            <div className="text-2xl font-bold text-[#3F3D56] group-hover:text-[#FE5F62] transition-colors duration-300">500+</div>
+                            <div className="text-2xl font-bold text-[#3F3D56] group-hover:text-[#FE5F62] transition-colors duration-300">200+</div>
                             <div className="text-sm text-gray-600">Happy Pets</div>
                         </div>
                         <div className="text-center group hover:scale-105 transition-transform duration-300">
@@ -113,7 +113,7 @@ const HeroSection = () => {
                             <div className="text-sm text-gray-600">Emergency Care</div>
                         </div>
                         <div className="text-center group hover:scale-105 transition-transform duration-300">
-                            <div className="text-2xl font-bold text-[#3F3D56] group-hover:text-[#FE5F62] transition-colors duration-300">15+</div>
+                            <div className="text-2xl font-bold text-[#3F3D56] group-hover:text-[#FE5F62] transition-colors duration-300">5+</div>
                             <div className="text-sm text-gray-600">Expert Vets</div>
                         </div>
                     </div>

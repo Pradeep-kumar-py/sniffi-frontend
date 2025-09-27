@@ -92,7 +92,7 @@ const Footer = () => {
                             </p>
                             <br />
                             <Link
-                                to="/services"
+                                to="/services/vet-consultation"
                                 className="text-gray-300 hover:text-[#FE5F62] transition-colors duration-300 flex items-center gap-2"
                             >
                                 <svg
@@ -112,7 +112,7 @@ const Footer = () => {
                                 Home Veterinary Care
                             </Link>
                             <Link
-                                to="/services"
+                                to="/services/vet-consultation"
                                 className="text-gray-300 hover:text-[#FE5F62] transition-colors duration-300 flex items-center gap-2"
                             >
                                 <svg
@@ -132,7 +132,7 @@ const Footer = () => {
                                 At Home Vets in Pune
                             </Link>
                             <Link
-                                to="/services"
+                                to="/services/vet-consultation"
                                 className="text-gray-300 hover:text-[#FE5F62] transition-colors duration-300 flex items-center gap-2"
                             >
                                 <svg
@@ -152,7 +152,7 @@ const Footer = () => {
                                 At Home Vets in Mumbai
                             </Link>
                             <Link
-                                to="/services"
+                                to="/services/vet-consultation"
                                 className="text-gray-300 hover:text-[#FE5F62] transition-colors duration-300 flex items-center gap-2"
                             >
                                 <svg

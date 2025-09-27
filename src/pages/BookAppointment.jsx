@@ -212,7 +212,7 @@ const BookAppointment = () => {
   const services = [
     { value: 'Regular Checkup', label: 'Regular Checkup', icon: '🩺' },
     { value: 'Vaccination', label: 'Vaccination', icon: '💉' },
-    { value: 'Grooming Services', label: 'Grooming Services', icon: '✂️' },
+    // { value: 'Grooming Services', label: 'Grooming Services', icon: '✂️' },
     { value: 'Dental Care', label: 'Dental Care', icon: '🦷' },
     { value: 'Emergency Care', label: 'Emergency Care', icon: '🚨' }
   ];
