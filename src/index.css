@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+/* Hide scrollbar on mobile devices */
+@media (max-width: 768px) {
+  /* Webkit browsers */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+  }
+  
+  /* Ensure scrolling still works */
+  html, body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+}
