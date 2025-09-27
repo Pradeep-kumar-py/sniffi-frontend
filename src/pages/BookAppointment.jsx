@@ -13,13 +13,13 @@ const BookAppointment = () => {
   const [formData, setFormData] = useState({
     petName: '',
     petType: 'dog',
-    ownerName: '',
+    name: '',
     email: '',
     phone: '',
     date: '',
     time: '',
     service: 'checkup',
-    notes: '',
+    message: '',
     agreeToTerms: false
   });
 
@@ -80,7 +80,7 @@ const BookAppointment = () => {
 
   const submitToAPI = async (appointmentData) => {
     try {
-      const response = await fetch(`${API_BASE_URL}appointments`, {
+      const response = await fetch(`${API_BASE_URL}/api/appointments/getAppointments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -135,8 +135,8 @@ const BookAppointment = () => {
       newErrors.petName = 'Pet name is required';
     }
 
-    if (!formData.ownerName.trim()) {
-      newErrors.ownerName = 'Your name is required';
+    if (!formData.name.trim()) {
+      newErrors.name = 'Your name is required';
     }
 
     if (!formData.email.trim()) {
@@ -182,17 +182,20 @@ const BookAppointment = () => {
 
 
     try {
-      // Only use API submission
-      await submitToAPI(appointmentData);
+      const response = await fetch(`${API_BASE_URL}/api/appointments/book-appointment`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(appointmentData)
+      });
 
-      // Store data locally
-      localStorage.setItem('appointmentData', JSON.stringify(appointmentData));
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-      setSubmitted(true);
-
-      setTimeout(() => {
-        navigate('/thank-you'); // Navigate to thank you page instead
-      }, 3000);
+      const result = await response.json();
+      console.log('Successfully submitted to API:', result);
 
     } catch (error) {
       console.error('Appointment submission failed:', error);
@@ -339,24 +342,24 @@ const BookAppointment = () => {
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="block text-gray-700 font-semibold mb-3" htmlFor="ownerName">
+                    <label className="block text-gray-700 font-semibold mb-3" htmlFor="name">
                       Your Name*
                     </label>
                     <input
                       type="text"
-                      id="ownerName"
-                      name="ownerName"
-                      value={formData.ownerName}
+                      id="name"
+                      name="name"
+                      value={formData.name}
                       onChange={handleChange}
-                      className={`w-full px-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${errors.ownerName ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
+                      className={`w-full px-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${errors.name ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
                         }`}
                       placeholder="Enter your full name"
                       required
                     />
-                    {errors.ownerName && (
+                    {errors.name && (
                       <p className="text-red-500 text-sm mt-2 flex items-center">
                         <span className="w-1 h-1 bg-red-500 rounded-full mr-2"></span>
-                        {errors.ownerName}
+                        {errors.name}
                       </p>
                     )}
                   </div>
@@ -522,17 +525,17 @@ const BookAppointment = () => {
                   </div>
 
                   <div className="md:col-span-2 space-y-2">
-                    <label className="block text-gray-700 font-semibold mb-3" htmlFor="notes">
-                      Additional Notes
+                    <label className="block text-gray-700 font-semibold mb-3" htmlFor="message">
+                      Additional message
                     </label>
                     <div className="relative">
                       <div className="absolute top-4 left-4 pointer-events-none">
                         <FaNotesMedical className="text-gray-400" />
                       </div>
                       <textarea
-                        id="notes"
-                        name="notes"
-                        value={formData.notes}
+                        id="message"
+                        name="message"
+                        value={formData.message}
                         onChange={handleChange}
                         rows="4"
                         className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 hover:border-gray-300 resize-none"
