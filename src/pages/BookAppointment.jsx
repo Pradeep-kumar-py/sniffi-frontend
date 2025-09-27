@@ -111,7 +111,7 @@ const BookAppointment = () => {
     });
 
     const jsonData = JSON.stringify(appointmentData);
-    
+
     const uploadParams = {
       Bucket: 'sniffi-pet-appointments-data',
       Key: `appointments/${Date.now()}.json`,
@@ -180,45 +180,23 @@ const BookAppointment = () => {
       submittedAt: new Date().toISOString()
     };
 
+
     try {
-      // Try API submission first
+      // Only use API submission
       await submitToAPI(appointmentData);
-      
-      // If API succeeds, also upload to S3 as backup
-      try {
-        await uploadToS3(appointmentData);
-      } catch (s3Error) {
-        console.warn('S3 backup upload failed, but API submission succeeded:', s3Error);
-      }
 
       // Store data locally
       localStorage.setItem('appointmentData', JSON.stringify(appointmentData));
 
-      // Show success message
       setSubmitted(true);
 
-      // Navigate to the Thank You page after a delay
       setTimeout(() => {
-        navigate('/');
+        navigate('/thank-you'); // Navigate to thank you page instead
       }, 3000);
 
     } catch (error) {
-      console.error('Primary submission failed, trying S3 fallback:', error);
-      
-      try {
-        // Fallback to S3 if API fails
-        await uploadToS3(appointmentData);
-        localStorage.setItem('appointmentData', JSON.stringify(appointmentData));
-        setSubmitted(true);
-        
-        setTimeout(() => {
-          navigate('/');
-        }, 3000);
-        
-      } catch (fallbackError) {
-        console.error('Both API and S3 submission failed:', fallbackError);
-        alert('There was an error scheduling your appointment. Please try again or contact us directly.');
-      }
+      console.error('Appointment submission failed:', error);
+      alert('There was an error scheduling your appointment. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -300,7 +278,7 @@ const BookAppointment = () => {
                     <p className="text-gray-600">Tell us about your furry friend</p>
                   </div>
                 </div>
-                
+
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
                     <label className="block text-gray-700 font-semibold mb-3" htmlFor="petName">
@@ -312,9 +290,8 @@ const BookAppointment = () => {
                       name="petName"
                       value={formData.petName}
                       onChange={handleChange}
-                      className={`w-full px-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${
-                        errors.petName ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${errors.petName ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
+                        }`}
                       placeholder="e.g., Buddy, Milo, Luna"
                       required
                     />
@@ -325,7 +302,7 @@ const BookAppointment = () => {
                       </p>
                     )}
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label className="block text-gray-700 font-semibold mb-3" htmlFor="petType">
                       Pet Type*
@@ -359,7 +336,7 @@ const BookAppointment = () => {
                     <p className="text-gray-600">We need your details to contact you</p>
                   </div>
                 </div>
-                
+
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
                     <label className="block text-gray-700 font-semibold mb-3" htmlFor="ownerName">
@@ -371,9 +348,8 @@ const BookAppointment = () => {
                       name="ownerName"
                       value={formData.ownerName}
                       onChange={handleChange}
-                      className={`w-full px-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${
-                        errors.ownerName ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
-                      }`}
+                      className={`w-full px-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${errors.ownerName ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
+                        }`}
                       placeholder="Enter your full name"
                       required
                     />
@@ -384,7 +360,7 @@ const BookAppointment = () => {
                       </p>
                     )}
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label className="block text-gray-700 font-semibold mb-3" htmlFor="email">
                       Email Address*
@@ -399,9 +375,8 @@ const BookAppointment = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${
-                          errors.email ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
-                        }`}
+                        className={`w-full pl-12 pr-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${errors.email ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
+                          }`}
                         placeholder="your.email@example.com"
                         required
                       />
@@ -413,7 +388,7 @@ const BookAppointment = () => {
                       </p>
                     )}
                   </div>
-                  
+
                   <div className="md:col-span-2 space-y-2">
                     <label className="block text-gray-700 font-semibold mb-3" htmlFor="phone">
                       Phone Number*
@@ -429,9 +404,8 @@ const BookAppointment = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         maxLength="10"
-                        className={`w-full pl-12 pr-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${
-                          errors.phone ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
-                        }`}
+                        className={`w-full pl-12 pr-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${errors.phone ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
+                          }`}
                         placeholder="1234567890"
                         required
                       />
@@ -458,7 +432,7 @@ const BookAppointment = () => {
                     <p className="text-gray-600">Choose your preferred date and time</p>
                   </div>
                 </div>
-                
+
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
                     <label className="block text-gray-700 font-semibold mb-3" htmlFor="date">
@@ -475,9 +449,8 @@ const BookAppointment = () => {
                         value={formData.date}
                         onChange={handleChange}
                         min={new Date().toISOString().split('T')[0]}
-                        className={`w-full pl-12 pr-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${
-                          errors.date ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
-                        }`}
+                        className={`w-full pl-12 pr-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${errors.date ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
+                          }`}
                         required
                       />
                     </div>
@@ -494,7 +467,7 @@ const BookAppointment = () => {
                       </p>
                     )}
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label className="block text-gray-700 font-semibold mb-3" htmlFor="time">
                       Preferred Time*
@@ -508,9 +481,8 @@ const BookAppointment = () => {
                         name="time"
                         value={formData.time}
                         onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${
-                          errors.time ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
-                        }`}
+                        className={`w-full pl-12 pr-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${errors.time ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
+                          }`}
                         required
                       >
                         <option value="" disabled>Select a time slot</option>
@@ -528,7 +500,7 @@ const BookAppointment = () => {
                       </p>
                     )}
                   </div>
-                  
+
                   <div className="md:col-span-2 space-y-2">
                     <label className="block text-gray-700 font-semibold mb-3" htmlFor="service">
                       Service Type*
@@ -548,7 +520,7 @@ const BookAppointment = () => {
                       ))}
                     </select>
                   </div>
-                  
+
                   <div className="md:col-span-2 space-y-2">
                     <label className="block text-gray-700 font-semibold mb-3" htmlFor="notes">
                       Additional Notes
@@ -581,9 +553,8 @@ const BookAppointment = () => {
                       name="agreeToTerms"
                       checked={formData.agreeToTerms}
                       onChange={handleChange}
-                      className={`w-5 h-5 text-[#FE5F62] focus:ring-[#FE5F62] focus:ring-4 border-2 rounded mt-1 transition-all duration-300 ${
-                        errors.agreeToTerms ? 'border-red-400' : 'border-gray-300'
-                      }`}
+                      className={`w-5 h-5 text-[#FE5F62] focus:ring-[#FE5F62] focus:ring-4 border-2 rounded mt-1 transition-all duration-300 ${errors.agreeToTerms ? 'border-red-400' : 'border-gray-300'
+                        }`}
                       required
                     />
                     <label htmlFor="agreeToTerms" className="ml-3 block text-gray-700 leading-relaxed">
@@ -624,7 +595,7 @@ const BookAppointment = () => {
                       </>
                     )}
                   </button>
-                  
+
                   <p className="text-gray-500 text-sm mt-4">
                     We'll contact you within 24 hours to confirm your appointment
                   </p>
