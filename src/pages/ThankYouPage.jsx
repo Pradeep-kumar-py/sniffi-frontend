@@ -72,7 +72,7 @@ const ThankYouPage = () => {
                         </Link>
                         
                         <Link 
-                            to="/bookappointment" 
+                            to="/book-appointment" 
                             className="inline-flex items-center gap-3 bg-[#FE5F62] hover:bg-[#e45457] text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group transform hover:-translate-y-1"
                         >
                             <FaCalendarAlt className="text-lg" />

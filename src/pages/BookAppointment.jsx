@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaPaw, FaCalendarAlt, FaClock, FaUser, FaDog, FaPhoneAlt, FaEnvelope, FaNotesMedical, FaCheckCircle, FaSpinner } from 'react-icons/fa';
+import { FaPaw, FaCalendarAlt, FaClock, FaUser, FaDog, FaPhoneAlt, FaNotesMedical, FaCheckCircle, FaSpinner } from 'react-icons/fa';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
 const REGION = import.meta.env.VITE_AWS_REGION;
@@ -14,7 +14,6 @@ const BookAppointment = () => {
     petName: '',
     petType: 'Dog',
     name: '',
-    email: '',
     phone: '',
     date: '',
     time: '',
@@ -33,10 +32,7 @@ const BookAppointment = () => {
     return phoneRegex.test(phone);
   };
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+
 
   const validateDate = (date) => {
     if (!date) return false;
@@ -139,12 +135,6 @@ const BookAppointment = () => {
       newErrors.name = 'Your name is required';
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
     } else if (!validatePhone(formData.phone)) {
@@ -179,7 +169,6 @@ const BookAppointment = () => {
       petName: formData.petName.trim(),
       petType: formData.petType,
       name: formData.name.trim(),
-      email: formData.email.trim(),
       phone: formData.phone.trim(),
       date: new Date(formData.date), // Send as Date object
       time: formData.time,
@@ -207,10 +196,10 @@ const BookAppointment = () => {
       // Show success state
       // setSubmitted(true);
 
-      // Redirect after 3 seconds
+      // Redirect after 200 milliseconds
       setTimeout(() => {
         navigate('/thank-you');
-      }, 3000);
+      }, 200);
 
     } catch (error) {
       alert(`Appointment submission failed: ${error.message}`);
@@ -380,34 +369,6 @@ const BookAppointment = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-gray-700 font-semibold mb-3" htmlFor="email">
-                      Email Address*
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                        <FaEnvelope className="text-gray-400" />
-                      </div>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className={`w-full pl-12 pr-4 py-4 border-2 rounded-xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#FE5F62]/20 focus:border-[#FE5F62] transition-all duration-300 ${errors.email ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-gray-300'
-                          }`}
-                        placeholder="your.email@example.com"
-                        required
-                      />
-                    </div>
-                    {errors.email && (
-                      <p className="text-red-500 text-sm mt-2 flex items-center">
-                        <span className="w-1 h-1 bg-red-500 rounded-full mr-2"></span>
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="md:col-span-2 space-y-2">
                     <label className="block text-gray-700 font-semibold mb-3" htmlFor="phone">
                       Phone Number*
                     </label>
