@@ -12,13 +12,13 @@ const BookAppointment = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     petName: '',
-    petType: 'dog',
+    petType: 'Dog',
     name: '',
     email: '',
     phone: '',
     date: '',
     time: '',
-    service: 'checkup',
+    service: 'Regular Checkup',
     message: '',
     agreeToTerms: false
   });
@@ -174,11 +174,19 @@ const BookAppointment = () => {
     }
 
     // Prepare the form data
+    // Prepare the form data with proper date format
     const appointmentData = {
-      ...formData,
-      date: formatDateToDisplay(formData.date),
-      submittedAt: new Date().toISOString()
+      petName: formData.petName.trim(),
+      petType: formData.petType,
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      date: new Date(formData.date), // Send as Date object
+      time: formData.time,
+      service: formData.service,
+      message: formData.message.trim()
     };
+
 
 
     try {
@@ -196,29 +204,36 @@ const BookAppointment = () => {
 
       const result = await response.json();
       console.log('Successfully submitted to API:', result);
+      // Show success state
+      // setSubmitted(true);
+
+      // Redirect after 3 seconds
+      setTimeout(() => {
+        navigate('/thank-you');
+      }, 3000);
 
     } catch (error) {
-      console.error('Appointment submission failed:', error);
-      alert('There was an error scheduling your appointment. Please try again or contact us directly.');
+      alert(`Appointment submission failed: ${error.message}`);
+      // alert('There was an error scheduling your appointment. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const services = [
-    { value: 'checkup', label: 'Regular Checkup', icon: '🩺' },
-    { value: 'vaccination', label: 'Vaccination', icon: '💉' },
-    { value: 'grooming', label: 'Grooming Services', icon: '✂️' },
-    { value: 'dental', label: 'Dental Care', icon: '🦷' },
-    { value: 'emergency', label: 'Emergency Care', icon: '🚨' }
+    { value: 'Regular Checkup', label: 'Regular Checkup', icon: '🩺' },
+    { value: 'Vaccination', label: 'Vaccination', icon: '💉' },
+    { value: 'Grooming Services', label: 'Grooming Services', icon: '✂️' },
+    { value: 'Dental Care', label: 'Dental Care', icon: '🦷' },
+    { value: 'Emergency Care', label: 'Emergency Care', icon: '🚨' }
   ];
 
   const petTypes = [
-    { value: 'dog', label: 'Dog', icon: '🐕' },
-    { value: 'cat', label: 'Cat', icon: '🐱' },
-    { value: 'bird', label: 'Bird', icon: '🐦' },
-    { value: 'rabbit', label: 'Rabbit', icon: '🐰' },
-    { value: 'other', label: 'Other', icon: '🐾' }
+    { value: 'Dog', label: 'Dog', icon: '🐕' },
+    { value: 'Cat', label: 'Cat', icon: '🐱' },
+    { value: 'Bird', label: 'Bird', icon: '🐦' },
+    { value: 'Rabbit', label: 'Rabbit', icon: '🐰' },
+    { value: 'Other', label: 'Other', icon: '🐾' }
   ];
 
   const timeSlots = [
