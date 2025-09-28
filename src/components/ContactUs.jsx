@@ -16,8 +16,8 @@ const ContactUs = () => {
       icon: "✉️",
       title: "Email",
       subtitle: "Send us a message",
-      contact: "sniffi@gmail.com",
-      href: "mailto:sniffi@gmail.com",
+      contact: "athome@sniffi.in",
+      href: "mailto:athome@sniffi.in",
       gradient: "from-green-400 to-green-600",
       bgColor: "bg-green-50",
       hoverColor: "hover:bg-green-100"
