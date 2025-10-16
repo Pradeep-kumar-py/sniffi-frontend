@@ -17,26 +17,26 @@ const WhyChooseUs = () => {
     
     const headingParts = [
         { text: "Why ", color: "text-[#3F3D56]" },
-        { text: "Choose", color: "text-[#FE5F62]" },
-        { text: " Us?", color: "text-[#3F3D56]" },
+        { text: "At ", color: "text-[#FE5F62]" },
+        { text: " Home?", color: "text-[#3F3D56]" },
     ];
 
     const features = [
         {
-            title: "Vets You can Trust",
-            description: "We have licensed, compassionate vets who treat your pet like family."
+            title: "Less Stress, More Comfort",
+            description: "Pets stay calm in their familiar environment."
         },
         {
-            title: "Same Day Appointments",
-            description: "We know pet health can't wait, so we don't make you."
+            title: "Safe & Convenient",
+            description: "No travel, no crowded clinics, no watings."
         },
         {
-            title: "Seamless Care",
-            description: "All records are stored digitally keeping your pet's health organized and accessible."
+            title: "Personalized Attention",
+            description: "One-on-One care, right at your doorstep."
         },
         {
-            title: "Holistic Healthcare",
-            description: "From vaccinations to routine checkups - keep your pet healthy year-round."
+            title: "Complete Care at Home",
+            description: "Consultations, vaccinations, treatments, and more delivered to you."
         }
     ];
 
@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
             ))}
 
             {/* Images Section */}
-            <div className="flex gap-6 items-center justify-center mb-8 lg:mb-0 lg:mr-16 relative z-10">
+            {/* <div className="flex gap-6 items-center justify-center mb-8 lg:mb-0 lg:mr-16 relative z-10">
                 <div className="relative">
                     <img
                         src={doc3}
@@ -65,11 +65,11 @@ const WhyChooseUs = () => {
                         alt="Dog with medical professionals"
                     />
                 </div>
-            </div>
+            </div> */}
 
             {/* Content Section */}
-            <div className="max-w-2xl text-left relative z-10">
-                <h2 className="mb-8">
+            <div className="w-full text-left relative z-10">
+                <h2 className="mb-8 text-center">
                     {headingParts.map((part, index) => (
                         <span key={index} className={`text-5xl lg:text-6xl font-bold tracking-wide ${part.color}`}>
                             {part.text}
@@ -77,14 +77,31 @@ const WhyChooseUs = () => {
                     ))}
                 </h2>
 
-                <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {features.map((feature, index) => (
-                        <div key={index} className="flex items-start">
-                            <span className="text-[#FE5F62] font-bold text-xl mr-3 mt-1">✓</span>
-                            <p className="text-gray-700 text-lg leading-relaxed">
-                                <span className="font-bold text-gray-900">{feature.title}</span>
-                                <span className="text-gray-600"> – {feature.description}</span>
-                            </p>
+                        <div 
+                            key={index} 
+                            className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 p-8 border border-gray-200 hover:border-[#FE5F62] hover:-translate-y-2 overflow-hidden"
+                        >
+                            {/* Decorative background element */}
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#FE5F62] opacity-5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                            
+                            <div className="relative flex items-start">
+                                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#FE5F62] to-[#ff7b7d] rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                    <span className="text-white font-bold text-2xl">✓</span>
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="font-bold text-gray-900 text-xl mb-3 group-hover:text-[#FE5F62] transition-colors duration-300">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="text-gray-600 text-base leading-relaxed">
+                                        {feature.description}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Animated bottom border */}
+                            <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#FE5F62] to-[#ff7b7d] w-0 group-hover:w-full transition-all duration-500"></div>
                         </div>
                     ))}
                 </div>

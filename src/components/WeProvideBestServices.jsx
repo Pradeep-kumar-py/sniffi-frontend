@@ -48,26 +48,26 @@ const WeProvideBestServices = () => {
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-                    <div className="inline-flex items-center gap-3 mb-4 sm:mb-6 px-4 py-2 bg-[#FE5F62]/10 rounded-full">
+                    {/* <div className="inline-flex items-center gap-3 mb-4 sm:mb-6 px-4 py-2 bg-[#FE5F62]/10 rounded-full">
                         <IoPawOutline className="text-[#FE5F62] text-lg sm:text-xl" />
                         <span className="text-[#3F3D56] text-sm sm:text-base font-medium">Our Services</span>
-                    </div>
+                    </div> */}
                     
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide leading-tight mb-4 sm:mb-6">
-                        <span className="text-[#3F3D56]">We Provide </span>
+                        <span className="text-[#3F3D56]">Comprehensive </span>
                         <span className="text-[#FE5F62] relative">
-                            Best Services
+                            Veterinary Services
                             <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FE5F62]/50 rounded-full"></div>
                         </span>
                     </h2>
                     
                     <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                        Comprehensive veterinary care designed with your pet's comfort and well-being in mind.
+                        From tummy rubs checkups to life-savings care - everything ypur pets needs!
                     </p>
                 </div>
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
                     {services.map((service, index) => (
                         <Link 
                             to={service.path} 
@@ -130,7 +130,7 @@ const WeProvideBestServices = () => {
                     </div>
                     
                     {/* Trust indicators */}
-                    <div className="flex items-center justify-center gap-6 sm:gap-8 mt-8 sm:mt-12 text-sm text-gray-600">
+                    {/* <div className="flex items-center justify-center gap-6 sm:gap-8 mt-8 sm:mt-12 text-sm text-gray-600">
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                             <span>Licensed Vets</span>
@@ -143,7 +143,7 @@ const WeProvideBestServices = () => {
                             <div className="w-2 h-2 bg-[#FE5F62] rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
                             <span>24/7 Support</span>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

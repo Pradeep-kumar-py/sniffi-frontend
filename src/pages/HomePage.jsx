@@ -14,7 +14,7 @@ const HomePage = () => {
     <main>
         {/* <Navbar /> */}
         <HeroSection/>
-        <DoctorImageWithPet/>
+        {/* <DoctorImageWithPet/> */}
         <WhyChooseUs/>
         <WeProvideBestServices/>
         <StatsSection/>

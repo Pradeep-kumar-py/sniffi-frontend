@@ -32,7 +32,7 @@ const StatsSection = () => {
             
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Header Section */}
-                <div className="text-center mb-12 sm:mb-16">
+                {/* <div className="text-center mb-12 sm:mb-16">
                     <div className="inline-flex items-center gap-3 mb-4">
                         <div className="w-8 h-1 bg-[#FE5F62] rounded-full"></div>
                         <span className="text-[#FE5F62] font-semibold text-sm sm:text-base uppercase tracking-wider">
@@ -47,7 +47,7 @@ const StatsSection = () => {
                     <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
                         Our commitment to excellence is reflected in the trust our clients place in us and the care we provide to their beloved pets.
                     </p>
-                </div>
+                </div> */}
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
