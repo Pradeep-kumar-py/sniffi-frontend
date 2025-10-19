@@ -2,6 +2,17 @@ import React from 'react'
 
 const ContactUs = () => {
   const contactMethods = [
+        {
+      icon: null,
+      title: "WhatsApp",
+      subtitle: "Chat with us instantly",
+      contact: "+91-9175129919",
+      href: "https://wa.me/919175129919",
+      gradient: "from-emerald-400 to-emerald-600",
+      bgColor: "bg-emerald-50",
+      hoverColor: "hover:bg-emerald-100",
+      isWhatsApp: true
+    },
     {
       icon: "📞",
       title: "Phone",
@@ -21,18 +32,8 @@ const ContactUs = () => {
       gradient: "from-green-400 to-green-600",
       bgColor: "bg-green-50",
       hoverColor: "hover:bg-green-100"
-    },
-    {
-      icon: null,
-      title: "WhatsApp",
-      subtitle: "Chat with us instantly",
-      contact: "+91-9175129919",
-      href: "https://wa.me/919175129919",
-      gradient: "from-emerald-400 to-emerald-600",
-      bgColor: "bg-emerald-50",
-      hoverColor: "hover:bg-emerald-100",
-      isWhatsApp: true
     }
+
   ];
 
   const WhatsAppIcon = () => (
