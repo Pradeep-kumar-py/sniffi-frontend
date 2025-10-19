@@ -62,7 +62,7 @@ const WeProvideBestServices = () => {
                     </h2>
                     
                     <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                        From tummy rubs checkups to life-savings care - everything ypur pets needs!
+                        From tummy rubs checkups to life-savings care - everything your pets needs!
                     </p>
                 </div>
 
@@ -124,7 +124,7 @@ const WeProvideBestServices = () => {
                             to="/book-appointment"
                             className="inline-flex items-center gap-2 bg-[#FE5F62] hover:bg-[#e45457] text-white font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group touch-target"
                         >
-                            <span>Book Consultation</span>
+                            <span>Book Appointment</span>
                             <IoPawOutline className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform duration-300" />
                         </Link>
                     </div>

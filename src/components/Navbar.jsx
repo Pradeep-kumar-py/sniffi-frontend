@@ -68,13 +68,68 @@ const Navbar = () => {
                         >
                             Home
                         </NavLink>
-                        <NavLink 
-                            to='/services' 
-                            style={activeStyle} 
-                            className="px-1 py-2 text-base lg:text-lg font-medium tracking-tight hover:text-[#FE5F62] transition-colors whitespace-nowrap"
-                        >
-                            Services
-                        </NavLink>
+                        
+                        {/* Services Dropdown */}
+                        <div className="relative group">
+                            <NavLink 
+                                to='/services' 
+                                style={activeStyle} 
+                                className="px-1 py-2 text-base lg:text-lg font-medium tracking-tight hover:text-[#FE5F62] transition-colors whitespace-nowrap flex items-center gap-1"
+                            >
+                                Services
+                                <svg 
+                                    className="w-4 h-4 transition-transform group-hover:rotate-180" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </NavLink>
+                            
+                            {/* Dropdown Menu */}
+                            <div className="absolute left-[-50%] top-full pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <div className="bg-white rounded-lg shadow-xl border border-gray-100 py-2 backdrop-blur-sm">
+                                    <Link 
+                                        to="/services/vet-consultation" 
+                                        className="block px-4 py-2.5 text-sm font-medium text-[#3F3D56] hover:bg-[#FE5F62]/10 hover:text-[#FE5F62] transition-colors"
+                                    >
+                                        Vet Consultation
+                                    </Link>
+                                    <Link 
+                                        to="/services/vaccination" 
+                                        className="block px-4 py-2.5 text-sm font-medium text-[#3F3D56] hover:bg-[#FE5F62]/10 hover:text-[#FE5F62] transition-colors"
+                                    >
+                                        Vaccinations
+                                    </Link>
+                                    <Link 
+                                        to="/services/wellness" 
+                                        className="block px-4 py-2.5 text-sm font-medium text-[#3F3D56] hover:bg-[#FE5F62]/10 hover:text-[#FE5F62] transition-colors"
+                                    >
+                                        Wellness Exam
+                                    </Link>
+                                    <Link 
+                                        to="/services/diagnostics" 
+                                        className="block px-4 py-2.5 text-sm font-medium text-[#3F3D56] hover:bg-[#FE5F62]/10 hover:text-[#FE5F62] transition-colors"
+                                    >
+                                        Diagnostic Tests
+                                    </Link>
+                                    <Link 
+                                        to="/services/pet-registration" 
+                                        className="block px-4 py-2.5 text-sm font-medium text-[#3F3D56] hover:bg-[#FE5F62]/10 hover:text-[#FE5F62] transition-colors"
+                                    >
+                                        Pet Registration
+                                    </Link>
+                                    <Link 
+                                        to="/services/emergency-care" 
+                                        className="block px-4 py-2.5 text-sm font-medium text-[#3F3D56] hover:bg-[#FE5F62]/10 hover:text-[#FE5F62] transition-colors"
+                                    >
+                                        Emergency Care
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <NavLink 
                             to="/privacy" 
                             style={activeStyle} 

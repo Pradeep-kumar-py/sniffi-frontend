@@ -9,7 +9,7 @@ import ServicesTestimonial from '../components/ServicesTestimonial'
 const ServicesPage = () => {
     return (
         <section>
-            <ServicesHeroSection />
+            {/* <ServicesHeroSection /> */}
             <WeProvideBestServices />
             <AppDownloadSection />
             <ServicesTestimonial/>
