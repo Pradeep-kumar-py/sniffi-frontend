@@ -135,7 +135,7 @@ const VetConsultation = () => {
               className="inline-flex items-center gap-3 bg-[#FE5F62] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#E54E51] transition-colors"
             >
               <FaPhoneAlt />
-              <span>+91 XXXXX XXXXX</span>
+              <span>+91 75129919</span>
             </a>
           </div>
 
@@ -150,13 +150,13 @@ const VetConsultation = () => {
         </div>
       </div>
 
-      {/* Why At-Home with Sniffli? */}
+      {/* Why At-Home with Sniffi? */}
       <div className="bg-gradient-to-br from-[#FFF5F5] to-[#FFE5E6] py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
               <span className="text-[#3F3D56]">Why At-Home with </span>
-              <span className="text-[#FE5F62]">Sniffli?</span>
+              <span className="text-[#FE5F62]">Sniffi?</span>
             </h2>
           </div>
 

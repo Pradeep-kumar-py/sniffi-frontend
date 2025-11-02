@@ -8,6 +8,7 @@ import BookAppointment from './pages/BookAppointment'
 import { Route, Routes } from 'react-router-dom'
 import ThankYouPage from './pages/ThankYouPage'
 import routes from './util/route'
+import ScrollToTop from './components/ScrollToTop'
 
 
 
@@ -18,6 +19,7 @@ function App() {
     // <HomePage />
     <>
       <Navbar />
+       <ScrollToTop />
       {/* <ThankYouPage/> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
