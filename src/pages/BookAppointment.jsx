@@ -76,7 +76,7 @@ const BookAppointment = () => {
 
   const submitToAPI = async (appointmentData) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/appointments/getAppointments`, {
+      const response = await fetch(`${API_BASE_URL}/api/bookappointment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ const BookAppointment = () => {
 
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/appointments/book-appointment`, {
+      const response = await fetch(`${API_BASE_URL}/api/bookappointment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
