@@ -67,7 +67,7 @@ const HeroSection = () => {
 
                     {/* Enhanced CTA buttons */}
                     <div className="flex justify-start text-center sm:flex-row gap-2 animate-hero-fade-up" style={{ animationDelay: '0.8s' }}>
-                        <Link to="/bookappointment" className="
+                        <Link to="/book-appointment" className="
                             group relative overflow-hidden
                             inline-flex items-center justify-center gap-2
                             bg-gradient-to-r from-[#FE5F62] to-[#FF8A8D] animate-gradient-shift
