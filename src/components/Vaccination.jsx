@@ -120,7 +120,7 @@ const Vaccination = () => {
             Protect your beloved pet with our comprehensive vaccination services. Our experienced veterinarians provide personalized vaccination schedules, ensuring your pet stays healthy and protected against serious diseases throughout their life.
           </div>
 
-          <Link to="/bookappointment" className="
+          <Link to="/book-appointment" className="
             inline-flex
             items-center
             gap-3
