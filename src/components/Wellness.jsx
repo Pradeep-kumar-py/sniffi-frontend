@@ -119,7 +119,7 @@ const Wellness = () => {
             that goes beyond basic checkups.
           </p>
           
-          <Link to="/bookappointment" className="
+          <Link to="/book-appointment" className="
             inline-flex
             items-center
             gap-2
