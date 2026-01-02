@@ -120,7 +120,7 @@ const Diagnostics = () => {
             to keep your pet healthy and happy.
           </div>
 
-          <Link to="/bookappointment" className="
+          <Link to="/book-appointment" className="
             inline-flex
             items-center
             gap-2
@@ -269,7 +269,7 @@ const Diagnostics = () => {
           </div>
 
           <div className="text-center">
-            <Link to="/bookappointment" className="
+            <Link to="/book-appointment" className="
               inline-flex
               items-center
               gap-2
@@ -308,7 +308,7 @@ const Diagnostics = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/bookappointment" className="
+            <Link to="/book-appointment" className="
               inline-flex
               items-center
               justify-center
