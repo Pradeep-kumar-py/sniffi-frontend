@@ -120,12 +120,12 @@ const Navbar = () => {
                                     >
                                         Pet Registration
                                     </Link>
-                                    <Link 
+                                    {/* <Link 
                                         to="/services/emergency-care" 
                                         className="block px-4 py-2.5 text-sm font-medium text-[#3F3D56] hover:bg-[#FE5F62]/10 hover:text-[#FE5F62] transition-colors"
                                     >
                                         Emergency Care
-                                    </Link>
+                                    </Link> */}
                                 </div>
                             </div>
                         </div>
