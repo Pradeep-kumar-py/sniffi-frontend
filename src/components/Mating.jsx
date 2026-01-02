@@ -191,7 +191,7 @@ const Mating = () => {
               Ensuring healthy, happy litters with our comprehensive breeding services.
             </p>
             <Link 
-              to="/bookappointment" 
+              to="/book-appointment" 
               className="inline-flex items-center gap-2 bg-[#FE5F62] hover:bg-[#e45457] text-white font-medium px-8 py-4 rounded-md transition-all duration-300 text-lg"
             >
               <FaCalendarAlt className="text-sm" />
@@ -392,7 +392,7 @@ const Mating = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link 
-              to="/bookappointment" 
+              to="/book-appointment" 
               className="inline-flex items-center gap-2 bg-white text-[#FE5F62] font-semibold px-8 py-4 rounded-md hover:bg-gray-100 transition-colors duration-300 text-lg"
             >
               <FaCalendarAlt />
