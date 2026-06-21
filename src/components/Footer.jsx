@@ -42,7 +42,7 @@ const Footer = () => {
                             Sniffi is your trusted partner for at-home veterinary care. Expert vets providing consultations, vaccinations, wellness checkups, and diagnostics—all at your doorstep.
                         </p>
 
-                        <div className="space-y-2">
+                        {/* <div className="space-y-2">
                             <p className="flex items-start gap-2 text-gray-300">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ const Footer = () => {
                                 </svg>
                                 <span>+91-9175129919</span>
                             </p>
-                        </div>
+                        </div> */}
 
                         {/* Social Links */}
                         <div className="mt-6">
