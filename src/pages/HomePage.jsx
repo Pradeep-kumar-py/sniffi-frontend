@@ -6,6 +6,7 @@ import WhyChooseUs from '../components/WhyChooseUs'
 import WeProvideBestServices from '../components/WeProvideBestServices'
 import StatsSection from '../components/StatsSection'
 import AppDownloadSection from '../components/AppDownloadSection'
+import ServiceAreas from '../components/ServiceAreas'
 import ContactUs from '../components/ContactUs'
 import Footer from '../components/Footer'
 
@@ -18,7 +19,8 @@ const HomePage = () => {
         <WhyChooseUs/>
         <WeProvideBestServices/>
         <StatsSection/>
-        <AppDownloadSection/>
+        {/* <AppDownloadSection/> */}
+        <ServiceAreas />
         <ContactUs />
         <Footer/>
     </main>
