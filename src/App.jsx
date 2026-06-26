@@ -9,6 +9,7 @@ import { Route, Routes } from 'react-router-dom'
 import ThankYouPage from './pages/ThankYouPage'
 import routes from './util/route'
 import ScrollToTop from './components/ScrollToTop'
+import WhatsAppButton from './components/WhatsAppButton'
 
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route key={index} path={route.path} element={route.element} />
         ))}
       </Routes>
+      <WhatsAppButton />
     </>
   )
 }
