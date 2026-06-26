@@ -8,6 +8,7 @@ import BookAppointment from './pages/BookAppointment'
 import { Route, Routes } from 'react-router-dom'
 import ThankYouPage from './pages/ThankYouPage'
 import routes from './util/route'
+import seoRoutes from './util/seoPageRoute'
 import ScrollToTop from './components/ScrollToTop'
 import WhatsAppButton from './components/WhatsAppButton'
 
@@ -32,6 +33,9 @@ function App() {
         {routes.map((route, index) => (
           <Route key={index} path={route.path} element={route.element} />
         ))}
+        {seoRoutes.map((route, index) => (
+          <Route key={`seo-${index}`} path={route.path} element={route.element} />
+        ))}
       </Routes>
       <WhatsAppButton />
     </>
@@ -39,3 +43,4 @@ function App() {
 }
 
 export default App
+
